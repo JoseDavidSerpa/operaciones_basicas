@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio</title>
+</head>
+<body>
+    <script>
+        // Función para realizar la operación matemática
+        function realizarOperacion(operacion, numero1, numero2) {
+            let resultado;
+    
+            switch(operacion) {
+                case "suma":
+                    resultado = numero1 + numero2;
+                    break;
+                case "resta":
+                    resultado = numero1 - numero2;
+                    break;
+                case "multiplicación":
+                    resultado = numero1 * numero2;
+                    break;
+                case "división":
+                    if (numero2 === 0) {
+                        resultado = "Error: División por cero no permitida.";
+                    } else {
+                        resultado = numero1 / numero2;
+                    }
+                    break;
+                  default:
+                    resultado = "Error: Operación no válida.";
+                }
+    
+                return resultado;
+        }
+
+        // Bucle while que permite al usuario realizar varias operaciones
+        let continuar = true;
+
+        while (continuar) {
+            // Solicitar al usuario que ingrese la operación
+            let operacion = prompt("Ingrese la operación matemática (suma, resta, multiplicación, división):").toLowerCase();
+
+            // Solicitar al usuario los dos números para la operación
+            let numero1 = parseFloat(prompt("Ingrese el primer número:"));
+            let numero2 = parseFloat(prompt("Ingrese el segundo número:"));
+
+            // Validar que los números sean válidos
+           if (isNaN(numero1) || isNaN(numero2)) {
+            console.log("Error: Uno o ambos valores no son números válidos.");
+           } else {
+               // Realizar la operación y mostrar el resultado
+               let resultado = realizarOperacion(operacion, numero1, numero2);
+               console.log("El resultado de la operación es: " + resultado);
+           }
+
+            // Preguntar al usuario si desea realizar otra operación
+            let respuesta = prompt("¿Deseas realizar otra operación? (sí/no):").toLowerCase();
+
+            if (respuesta !== "sí" && respuesta !== "s") {
+               continuar = false;  // Salir del bucle si el usuario responde que no
+           }
+        }
+
+        console.log("Gracias por usar la calculadora.");
+    </script>
+</body>
+</html>

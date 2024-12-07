@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio 3 ob</title>
+</head>
+<body>
+    <script>
+        // Declaración de Variables para almacenar la operación matemática
+        let operacion = "suma"; // Puede ser "suma", "resta", "multiplicación" o "división"
+
+        let numero1 = 15;
+        let numero2 = 5;  // Cambiar este valsor para probar otros casos
+
+
+        // validaciones de datos y operaciones
+        if (isNaN(numero1) || isNaN(numero2)) {
+            console.log("Error: Uno o ambos valores no son números válidos.");
+        } else {
+            // Validar que los números no sean nulos o indefinidos
+            if (numero1 == null || numero2 == null) {
+                  console.log("Error: Los números no pueden ser nulos.");
+            } else {
+                // Validar la operación y realizarla
+                let resultado;
+
+                // Función para realizar operaciones
+                switch(operacion) {
+                    case "suma":
+                        resultado = numero1 + numero2;
+                        break;
+                    case "resta":
+                        resultado = numero1 - numero2;
+                        break;
+                    case "multiplicación":
+                        resultado = numero1 * numero2;
+                        break;
+                    case "división":
+                        // Validar si el divisor es cero antes de dividir
+                        if (numero2 !== 0) {
+                            resultado = "Error: División por cero no permitida";
+                            
+                        } else {
+                            resultado = numero1 / numero2;
+                        }       
+                        break;
+                    default:
+                        resultado = "Error de Operación no válida";
+                }  
+
+                console.log("El resultado es: " + resultado);
+                document.write("El resultado es: "+resultado);
+            }
+        }
+
+    </script>
+
+</body>
+</html>
